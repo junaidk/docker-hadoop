@@ -37,14 +37,13 @@ RUN apt-get update && \
 COPY conf  $HADOOP_HOME/etc/hadoop/
 
 # Formatting HDFS
-RUN mkdir -p /data/dfs/data /data/dfs/name /data/dfs/namesecondary && \
-    hdfs namenode -format
-VOLUME /data
+#RUN mkdir -p /data/dfs/data /data/dfs/name /data/dfs/namesecondary && \
+#    hdfs namenode -format
+#VOLUME /data
 
 
 # Helper script for starting YARN
 ADD start-yarn.sh /usr/local/bin/start-yarn.sh
-
 
 
 ####################
@@ -71,6 +70,7 @@ ADD start-yarn.sh /usr/local/bin/start-yarn.sh
 #	50090 = dfs.secondary.http.address	(HTTP / Checkpoint for NameNode metadata)
 EXPOSE 9000 50070 50010 50020 50075 50090
 
+ADD start.sh /usr/local/bin/start.sh
+ENTRYPOINT /usr/local/bin/start.sh
 
-
-CMD ["hdfs"]
+#CMD ["hdfs"]
