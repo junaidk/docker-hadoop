@@ -169,10 +169,10 @@ With this port, you can access the web interfaces of the datanode.
 
 #### start NameNode : 
 ```bash
-docker run -d -h  hdfs-namenode -p 50070:50070  -e "NAMENODE=<host ip>" -e "SERVICE=namenode" --network=host -v <location on host file system>:/data mi096684/hadoop 
+docker run -d -h  hdfs-namenode -p 50070:50070  -e "NAMENODE=<host ip>" -e "SERVICE=namenode" --network=host -v <location on host file system>:/data hadoop 
 ```
 
 #### start DataNode : 
 ```bash
-docker run -d -p 50075:50075  -e "NAMENODE=<name-node ip>" -e "SERVICE=datanode" --network=host -v <location on host file system>:/data  mi096684/hadoop
+docker run -d -p 50075:50075  -e "NAMENODE=<name-node ip>" -e "SERVICE=datanode" --network=host -v <location on host file system>:/data  hadoop
 ```
