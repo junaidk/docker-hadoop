@@ -71,6 +71,5 @@ ADD start-yarn.sh /usr/local/bin/start-yarn.sh
 EXPOSE 9000 50070 50010 50020 50075 50090
 
 ADD start.sh /usr/local/bin/start.sh
-ENTRYPOINT /usr/local/bin/start.sh
-
-#CMD ["hdfs"]
+ENTRYPOINT ["/usr/local/bin/start.sh"]
+CMD ["hadoop"]
